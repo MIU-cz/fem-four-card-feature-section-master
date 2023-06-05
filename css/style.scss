@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+@import url("../resourse/normaliz-style-min.css");
+@import url("../resourse/fem-footer-style.css");
+
+// # Front-end Style Guide
+
+// ## Layout
+// The designs were created to the following widths:
+// - Mobile: 375px
+// - Desktop: 1440px
+
+// ## Colors
+// ### Primary
+$Red: hsl(0, 78%, 62%);
+$Cyan: hsl(180, 62%, 55%);
+$Orange: hsl(34, 97%, 64%);
+$Blue: hsl(212, 86%, 64%);
+
+// ### Neutral
+$Very-Dark-Blue: hsl(234, 12%, 34%); //headers & shadows
+$Grayish-Blue: hsl(229, 6%, 66%); //text
+$Very-Light-Gray: hsl(0, 0%, 98%); //background-color
+
+// ## Typography
+$font-paragraf: 15px;
+$font-title: 26px;
+$font-fam-Poppins: "Poppins";
+$fw200: 200;
+$fw400: 400;
+$fw600: 600;
+
+// ### my Variables
+$margin: 30px;
+$card-width: 350px;
+$card-height: 250px;
+$header-width: 465px;
+
+// ### Body main style
+body {
+	background-color: $Very-Light-Gray;
+	font-family: $font-fam-Poppins;
+	font-size: $font-paragraf;
+}
+
+.conteiner {
+}
+.flex {
+}
+.j-center {
+}
+.a-center {
+}
+.content {
+}
+.grid {
+}
+.grid__header {
+}
+.header_content {
+}
+.grid__item {
+}
+.row-2 {
+}
+.item_card {
+}
+.Supervisor {
+}
+.card_header {
+}
+.card-description {
+}
+.card_image {
+}
+.Team {
+}
+.Builder {
+}
+.Karma {
+}
+.Calculator {
+}
