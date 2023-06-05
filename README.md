@@ -27,8 +27,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [github](https://github.com/MIU-cz/fem-stats-preview-card-component-main)
-- Live Site URL: [preview](https://miu-cz.github.io/fem-stats-preview-card-component-main)
+- Solution URL: [github](https://github.com/MIU-cz/fem-four-card-feature-section-master)
+- Live Site URL: [preview](https://miu-cz.github.io/fem-four-card-feature-section-master)
 
 ## My process
 
