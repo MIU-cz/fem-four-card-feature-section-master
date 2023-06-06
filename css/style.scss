@@ -17,8 +17,8 @@ $Orange: hsl(34, 97%, 64%);
 $Blue: hsl(212, 86%, 64%);
 
 // ### Neutral
-$Very-Dark-Blue: hsl(234, 12%, 34%); //headers & shadows
-$Grayish-Blue: hsl(229, 6%, 66%); //text
+$Very-Dark-Blue: hsl(234, 12%, 34%); //headers
+$Grayish-Blue: hsl(229, 6%, 66%); //text & shadows
 $Very-Light-Gray: hsl(0, 0%, 98%); //background-color
 
 // ## Typography
@@ -34,49 +34,170 @@ $margin: 30px;
 $card-width: 350px;
 $card-height: 250px;
 $header-width: 465px;
+$content-width: 1110px;
 
 // ### Body main style
 body {
 	background-color: $Very-Light-Gray;
 	font-family: $font-fam-Poppins;
 	font-size: $font-paragraf;
+	color: $Grayish-Blue;
+	line-height: 1.5em;
 }
 
 .conteiner {
+	width: 100%;
+	height: 100vh;
 }
+
 .flex {
+	display: flex;
 }
+
 .j-center {
+	justify-content: center;
 }
+
 .a-center {
+	align-items: center;
 }
-.content {
+
+// ### grid styles
+.content__grid {
+	width: $content-width;
+	margin: auto 20px;
+	display: grid;
+	grid-template: auto repeat(2, 1fr) / repeat(3, 1fr);
+	justify-items: center;
+	align-items: center;
+
+	@media (max-width: 1150px) {
+		width: 100%;
+		grid-template: auto repeat(2, 1fr) / repeat(2, 1fr);
+	}
+
+	@media (max-width: 768px) {
+		grid-template: auto repeat(4, 1fr) / 1fr;
+	}
 }
-.grid {
-}
+
 .grid__header {
+	grid-column: span 3;
+
+	@media (max-width: 1150px) {
+		grid-column: span 2;
+	}
+
+	@media (max-width: 768px) {
+		grid-column: 1;
+		width: 100%;
+	}
 }
+
+@mixin title {
+	font-size: $font-title;
+	color: $Very-Dark-Blue;
+	margin-bottom: $margin - 10px;
+}
+
 .header_content {
+	width: $card-width * 1.5;
+	text-align: center;
+
+	& h1 {
+		@include title();
+		font-weight: $fw200;
+	}
+
+	& h2 {
+		@include title();
+		font-weight: $fw600;
+	}
+
+	& p {
+		margin-bottom: $margin * 1.5;
+	}
+
+	@media (max-width: 768px) {
+		width: 100%;
+	}
 }
+
 .grid__item {
+	margin-bottom: $margin;
+
+	@media (max-width: 768px) {
+		width: 100%;
+	}
 }
+
 .row-2 {
+	grid-row: span 2;
+
+	@media (max-width: 1150px) {
+		grid-row: 1;
+	}
 }
+
+.order-2 {
+	order: 2;
+
+	@media (max-width: 1150px) {
+		order: 0;
+	}
+}
+
+// ### card content styles
 .item_card {
+	max-width: $card-width;
+	height: $card-height;
+	padding: $margin;
+	border-top: solid 5px;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 5px 10px 1px $Grayish-Blue;
+	flex-wrap: wrap;
+	align-content: space-between;
 }
+
 .Supervisor {
+	border-color: $Cyan;
 }
-.card_header {
+
+.Team-Builder {
+	border-color: $Red;
 }
-.card-description {
-}
-.card_image {
-}
-.Team {
-}
-.Builder {
-}
+
 .Karma {
+	border-color: $Orange;
 }
+
 .Calculator {
+	border-color: $Blue;
 }
+
+.card_header {
+	width: 100%;
+	margin-bottom: $margin/2;
+
+	& h3 {
+		font-size: $font-paragraf + 3;
+		font-weight: $fw600;
+		color: $Very-Dark-Blue;
+	}
+}
+
+.card_description {
+	& p {
+		font-size: $font-paragraf - 3;
+	}
+}
+
+.item_card_image {
+	margin: 0 0 0 auto;
+}
+
+// ### attribution restyling
+// .attribution {
+// 	position: relative;
+// }
