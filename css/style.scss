@@ -36,6 +36,7 @@ $card-height: 250px;
 $header-width: 465px;
 $content-width: 1110px;
 
+// =============== //
 // ### Body main style
 body {
 	background-color: $Very-Light-Gray;
@@ -47,7 +48,11 @@ body {
 
 .conteiner {
 	width: 100%;
-	height: 100vh;
+	min-height: 100vh;
+
+	@media (max-width: 768px) {
+		margin: $margin 0;
+	}
 }
 
 .flex {
@@ -62,37 +67,77 @@ body {
 	align-items: center;
 }
 
+// =============== //
 // ### grid styles
 .content__grid {
-	width: $content-width;
 	margin: auto 20px;
-	display: grid;
-	grid-template: auto repeat(2, 1fr) / repeat(3, 1fr);
-	justify-items: center;
-	align-items: center;
 
-	@media (max-width: 1150px) {
-		width: 100%;
-		grid-template: auto repeat(2, 1fr) / repeat(2, 1fr);
+	@media (min-width: 375px) {
+		display: grid;
+		grid-auto-flow: row;
+		grid-template-columns: repeat(auto-fit, minmax($card-width, 1fr));
+		gap: 20px;
+		justify-items: center;
+		align-items: center;
 	}
+	@media (min-width: 1200px) {
+		max-width: $content-width;
+	}
+}
 
-	@media (max-width: 768px) {
-		grid-template: auto repeat(4, 1fr) / 1fr;
+.grid__item {
+	@media (max-width: 375px) {
+		margin-bottom: $margin;
+	}
+	@media (min-width: 375px) {
+		width: 100%;
+	}
+	@media (min-width: 576px) {
+		width: $card-width;
+	}
+	@media (min-width: 992px) {
+		width: 100%;
+	}
+}
+
+.item_card_grid {
+	display: grid;
+	grid-auto-flow: row;
+	grid-template: repeat(2, auto) / 1fr;
+	align-content: space-between;
+
+	@media (min-width: 375px) {
+		height: $card-height;
 	}
 }
 
 .grid__header {
-	grid-column: span 3;
-
-	@media (max-width: 1150px) {
-		grid-column: span 2;
-	}
-
-	@media (max-width: 768px) {
-		grid-column: 1;
+	@media (min-width: 576px) {
 		width: 100%;
 	}
+	@media (min-width: 768px) {
+		grid-column: span 2;
+		width: $card-width * 1.5;
+	}
+	@media (min-width: 1200px) {
+		grid-column: span 3;
+	}
 }
+
+.row-2 {
+	@media (min-width: 1200px) {
+		grid-row: span 2;
+	}
+}
+
+.order-2 {
+	@media (min-width: 1200px) {
+		order: 2;
+	}
+}
+
+// =============== //
+// ### card content styles
 
 @mixin title {
 	font-size: $font-title;
@@ -101,7 +146,6 @@ body {
 }
 
 .header_content {
-	width: $card-width * 1.5;
 	text-align: center;
 
 	& h1 {
@@ -117,47 +161,14 @@ body {
 	& p {
 		margin-bottom: $margin * 1.5;
 	}
-
-	@media (max-width: 768px) {
-		width: 100%;
-	}
 }
 
-.grid__item {
-	margin-bottom: $margin;
-
-	@media (max-width: 768px) {
-		width: 100%;
-	}
-}
-
-.row-2 {
-	grid-row: span 2;
-
-	@media (max-width: 1150px) {
-		grid-row: 1;
-	}
-}
-
-.order-2 {
-	order: 2;
-
-	@media (max-width: 1150px) {
-		order: 0;
-	}
-}
-
-// ### card content styles
 .item_card {
-	max-width: $card-width;
-	height: $card-height;
 	padding: $margin;
 	border-top: solid 5px;
 	border-radius: 10px;
 	overflow: hidden;
 	box-shadow: 0 5px 10px 1px $Grayish-Blue;
-	flex-wrap: wrap;
-	align-content: space-between;
 }
 
 .Supervisor {
@@ -178,26 +189,25 @@ body {
 
 .card_header {
 	width: 100%;
-	margin-bottom: $margin/2;
 
 	& h3 {
 		font-size: $font-paragraf + 3;
 		font-weight: $fw600;
 		color: $Very-Dark-Blue;
+		margin-bottom: $margin/2;
 	}
-}
 
-.card_description {
 	& p {
 		font-size: $font-paragraf - 3;
 	}
 }
 
-.item_card_image {
-	margin: 0 0 0 auto;
+.card_image {
+	// margin: 0 0 0 auto;
+	justify-self: end;
 }
 
 // ### attribution restyling
 // .attribution {
-// 	position: relative;
+// 	position: inherit;
 // }
